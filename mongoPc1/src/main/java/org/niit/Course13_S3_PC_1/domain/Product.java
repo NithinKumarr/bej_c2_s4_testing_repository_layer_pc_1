@@ -1,18 +1,16 @@
-package com.example.mongoPc1.domain;
-
-import java.util.Objects;
+package org.niit.Course13_S3_PC_1.domain;
 
 public class Product {
     private int productId;
-    private String productName;
+    private String ProductName;
     private String productDescription;
-    public Product(){
 
+    public Product() {
     }
 
     public Product(int productId, String productName, String productDescription) {
         this.productId = productId;
-        this.productName = productName;
+        ProductName = productName;
         this.productDescription = productDescription;
     }
 
@@ -25,11 +23,11 @@ public class Product {
     }
 
     public String getProductName() {
-        return productName;
+        return ProductName;
     }
 
     public void setProductName(String productName) {
-        this.productName = productName;
+        ProductName = productName;
     }
 
     public String getProductDescription() {
@@ -44,21 +42,8 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "productId=" + productId +
-                ", productName='" + productName + '\'' +
+                ", ProductName='" + ProductName + '\'' +
                 ", productDescription='" + productDescription + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return productId == product.productId && productName.equals(product.productName) && productDescription.equals(product.productDescription);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(productId, productName, productDescription);
     }
 }

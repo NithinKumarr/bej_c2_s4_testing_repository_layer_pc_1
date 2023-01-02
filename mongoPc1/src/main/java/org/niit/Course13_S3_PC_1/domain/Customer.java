@@ -1,27 +1,21 @@
-package com.example.mongoPc1.domain;
+package org.niit.Course13_S3_PC_1.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Objects;
-
-@Document
 public class Customer {
-    @Id
     private int customerId;
     private String customerName;
-    private long PhoneNo;
+    private Long customerPhoneNo;
     private Product customerProduct;
-    public Customer(){
 
+    public Customer() {
     }
 
-    public Customer(int customerId, String customerName, long phoneNo, com.example.mongoPc1.domain.Product customerProduct) {
+    public Customer(int customerId, String customerName, Long customerPhoneNo, Product customerProduct) {
         this.customerId = customerId;
         this.customerName = customerName;
-        PhoneNo = phoneNo;
+        this.customerPhoneNo = customerPhoneNo;
         this.customerProduct = customerProduct;
     }
+
     public int getCustomerId() {
         return customerId;
     }
@@ -38,12 +32,12 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public long getPhoneNo() {
-        return PhoneNo;
+    public Long getCustomerPhoneNo() {
+        return customerPhoneNo;
     }
 
-    public void setPhoneNo(long phoneNo) {
-        PhoneNo = phoneNo;
+    public void setCustomerPhoneNo(Long customerPhoneNo) {
+        this.customerPhoneNo = customerPhoneNo;
     }
 
     public Product getCustomerProduct() {
@@ -59,21 +53,8 @@ public class Customer {
         return "Customer{" +
                 "customerId=" + customerId +
                 ", customerName='" + customerName + '\'' +
-                ", PhoneNo=" + PhoneNo +
+                ", customerPhoneNo=" + customerPhoneNo +
                 ", customerProduct=" + customerProduct +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return customerId == customer.customerId && PhoneNo == customer.PhoneNo && customerName.equals(customer.customerName) && customerProduct.equals(customer.customerProduct);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(customerId, customerName, PhoneNo, customerProduct);
     }
 }
